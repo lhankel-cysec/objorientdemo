@@ -26,6 +26,7 @@ public class Bank {
                     break;
                 case 3:
                     System.out.println("Not yet Implemented");
+                    break;
             }
         }
     }
