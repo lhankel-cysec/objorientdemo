@@ -23,16 +23,19 @@ public class Bank {
                     System.exit(0);
                 case 2:
                     addCustomer(inputReader);
-                    System.out.println("Add Customer, Not yet Implemented");
                     break;
                 case 3:
+                    System.out.println("Add Customer, Not yet Implemented");
                     break;
             }
         }
     }
 
     private void addCustomer(Scanner inputReader) {
+        inputReader.nextLine();//eats \nfrom previous call to nextInt
+        System.out.print("Enter the new Customer's name:");
         var newCustomerName = inputReader.nextLine();
+        System.out.println("Enter the new Customer's Tax ID (SSN):");
         var newCustomerTaxID = inputReader.nextInt();
         var newCustomer = new Customer(newCustomerName, newCustomerTaxID);
         allCustomers.add(newCustomer);
