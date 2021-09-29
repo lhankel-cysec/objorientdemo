@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Customer {
     private int customerID;
@@ -20,6 +21,16 @@ public class Customer {
         return newAccount;
     }
 
+    public Optional<BankAccount> closeAccount(int accountNumber){
+        for(var currentAccount: accounts){
+            accounts.remove(currentAccount);
+            return Optional.of(currentAccount);
+        }
+
+    //if not found return empty optional
+    System.out.println("We tried to remove an account that didn't exist");
+    return Optional.empty();
+    }
     public String getName(){
         return name;
     }

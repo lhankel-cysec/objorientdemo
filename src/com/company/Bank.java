@@ -51,13 +51,25 @@ public class Bank {
                     allAccunts.add(newAccount);
                     break;
                 case 2:
-                    System.out.println("To do");
-                    break;
+                    closeAccount(inputReader, customer);
                 case 3:
                     return;
                 default:
                     System.out.println("Please choose one of the choices on the list");
             }
+        }
+    }
+
+    private void closeAccount(Scanner inputReader, Customer customer) {
+        //Ask the user for the account number to close
+        System.out.println("What is the ID of the account you want to close");
+        var closeID = inputReader.nextInt();
+        //Call close account on the customer
+        var closedAccount = customer.closeAccount(closeID);
+        //if successful remove the account from allAccounts as well
+        if (closedAccount.isPresent()){
+            System.out.println("Closing account ...");
+            allAccunts.remove(closedAccount.get());
         }
     }
 
