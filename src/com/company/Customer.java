@@ -13,11 +13,11 @@ public class Customer {
         accounts = new ArrayList<BankAccount>();
     }
 
-    public boolean openAccount(double initialBalance){
+    public BankAccount openAccount(double initialBalance){
         var newAccount = new BankAccount();
         newAccount.deposit(initialBalance);
         var didSucceed = accounts.add(newAccount);
-        return didSucceed;
+        return newAccount;
     }
 
     public String getName(){
